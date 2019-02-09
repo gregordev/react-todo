@@ -22,9 +22,14 @@ class TodoApp extends React.Component {
     };
 
     render() {
-        const removeTask = () => {
-            console.log('metoda zewnterzna remove');
+        const removeTask = (elementToRemove) => {
+            this.setState((prevState) => ({
+                tasks: prevState.tasks.filter((element) => {
+                    return element.content !== elementToRemove.content;
+                })
+            }));
         };
+
 
         const addTask = (element) => {
           this.setState((prevState) => ({

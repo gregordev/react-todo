@@ -3,8 +3,8 @@ import React from 'react';
 class Task extends React.Component {
 
     state = {
-      content: undefined,
-      completed: undefined
+      content: this.props.content,
+      completed: false
     };
 
     componentWillReceiveProps(nextProps) {
@@ -14,15 +14,15 @@ class Task extends React.Component {
     };
 
     render() {
-        const removeItem = () => {
-            console.log('remove item');
-            this.props.removeTask();
+        const removeTask = () => {
+            const elementToRemove = this.state;
+            this.props.removeTask(elementToRemove);
         };
 
         return (
           <div>
               {this.props.content}
-              <button onClick={removeItem}>Remove me</button>
+              <button onClick={removeTask}>Remove me</button>
           </div>
         );
     }
