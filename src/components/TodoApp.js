@@ -20,12 +20,28 @@ class TodoApp extends React.Component {
           }
       ]
     };
+
     render() {
+        const removeTask = () => {
+            console.log('metoda zewnterzna remove');
+        };
+
+        const addTask = (element) => {
+          this.setState((prevState) => ({
+              tasks: prevState.tasks.concat([element])
+          }));
+        };
+
         return (
           <div>
               <FilterTask/>
-              <AddTask/>
-              <TaskList/>
+              <AddTask
+                addTask={addTask}
+              />
+              <TaskList
+                  tasks={this.state.tasks}
+                  removeTask={removeTask}
+              />
           </div>
         );
     }

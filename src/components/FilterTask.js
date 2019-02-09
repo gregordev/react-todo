@@ -4,7 +4,7 @@ class FilterTask extends React.Component {
     render() {
         return (
             <div>
-                Filter
+                Filter tasks
             </div>
         )
     }
