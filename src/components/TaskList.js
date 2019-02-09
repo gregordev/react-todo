@@ -27,7 +27,10 @@ class TaskList extends React.Component {
         };
         return (
             <div>
-                {this.state.filteredTasks.map((task) => {
+                <div>
+                    {this.props.tasks.length > 0 && <div><FilterTask tasks={this.props.tasks} filterTasks={filterTasks}/></div>}
+                </div>
+                {this.props.tasks.length > 0 ? <div>{this.state.filteredTasks.length > 0 ? this.state.filteredTasks.map((task) => {
                     return <Task
                         key={task.content}
                         content={task.content}
@@ -35,11 +38,9 @@ class TaskList extends React.Component {
                         removeTask={this.props.removeTask}
                         setCompleted={this.props.setCompleted}
                     />;
-                })}
-                <FilterTask
-                    tasks={this.props.tasks}
-                    filterTasks={filterTasks}/>
+                }) : <p>Brak wyników!</p>}</div> : <p>Dodaj zadanie!</p>}
             </div>
+
         )
     }
 }

@@ -12,6 +12,10 @@ class Task extends React.Component {
         this.setState({completed})
     }
 
+    componentWillReceiveProps(nextProps, nextContext) {
+        console.log('xxxx');
+    }
+
     render() {
         const removeTask = () => {
             const elementToRemove = this.state;
@@ -21,7 +25,7 @@ class Task extends React.Component {
 
         const setCompleted = () => {
 
-            const toCompleted = {content: this.state.content, completed: !this.state.completed};
+            const toCompleted = {content: this.state.content, completed: !this.props.completed};
             this.props.setCompleted(toCompleted);
         };
 

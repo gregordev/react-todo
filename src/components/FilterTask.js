@@ -16,7 +16,7 @@ class FilterTask extends React.Component {
     render() {
 
         const filterTasks = (e) => {
-            const newFilters = e.target.value;
+            const newFilters = e.target.value.trim();
             this.props.filterTasks(newFilters);
             this.setState({
                 filters: newFilters

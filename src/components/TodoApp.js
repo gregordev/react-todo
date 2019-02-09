@@ -41,8 +41,18 @@ class TodoApp extends React.Component {
             });
         };
 
-
+        let taskContents = [];
         const addTask = (element) => {
+
+            for (let i =0; i < this.state.tasks.length; i++) {
+                taskContents.push(this.state.tasks[i].content.toLowerCase());
+            }
+            if (!element.content) {
+                return 'Enter valid value to add item';
+            } else if (taskContents.indexOf(element.content.toLowerCase()) > -1) {
+                return 'This option already exists'
+            }
+
           this.setState((prevState) => ({
               tasks: prevState.tasks.concat([element])
           }));
