@@ -9,7 +9,8 @@ class Task extends React.Component {
 
     componentWillReceiveProps(nextProps) {
             this.setState({
-                content: nextProps.content
+                content: nextProps.content,
+                completed: nextProps.completed
             })
     };
 
@@ -17,12 +18,21 @@ class Task extends React.Component {
         const removeTask = () => {
             const elementToRemove = this.state;
             this.props.removeTask(elementToRemove);
+            console.log(elementToRemove);
+        };
+
+        const setCompleted = () => {
+
+            const toCompleted = {content: this.state.content, completed: !this.state.completed};
+            this.props.setCompleted(toCompleted);
         };
 
         return (
           <div>
               {this.props.content}
               <button onClick={removeTask}>Remove me</button>
+              <input type="checkbox" onChange={setCompleted}/>
+              {this.props.completed ? "Completed" : "Not completed"}
           </div>
         );
     }

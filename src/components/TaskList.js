@@ -11,6 +11,7 @@ class TaskList extends React.Component {
                         content={task.content}
                         completed={task.completed}
                         removeTask={this.props.removeTask}
+                        setCompleted={this.props.setCompleted}
                     />;
                 })}
             </div>

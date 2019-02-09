@@ -30,6 +30,18 @@ class TodoApp extends React.Component {
             }));
         };
 
+        const setCompleted = (elementToComplete) => {
+            console.log(elementToComplete.completed);
+            const stateCopy = JSON.parse(JSON.stringify(this.state.tasks));
+            const id = this.state.tasks.findIndex((element) => {
+                return element.content === elementToComplete.content;
+            });
+            stateCopy[id] = elementToComplete;
+            this.setState({
+                tasks: stateCopy
+            });
+        };
+
 
         const addTask = (element) => {
           this.setState((prevState) => ({
@@ -46,6 +58,7 @@ class TodoApp extends React.Component {
               <TaskList
                   tasks={this.state.tasks}
                   removeTask={removeTask}
+                  setCompleted={setCompleted}
               />
           </div>
         );
