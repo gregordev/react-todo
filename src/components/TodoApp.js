@@ -1,6 +1,5 @@
 import React from 'react';
 import {AddTask} from './AddTask';
-import {FilterTask} from "./FilterTask";
 import {TaskList} from './TaskList';
 
 class TodoApp extends React.Component {
@@ -51,14 +50,13 @@ class TodoApp extends React.Component {
 
         return (
           <div>
-              <FilterTask/>
-              <AddTask
-                addTask={addTask}
-              />
               <TaskList
                   tasks={this.state.tasks}
                   removeTask={removeTask}
                   setCompleted={setCompleted}
+              />
+              <AddTask
+                  addTask={addTask}
               />
           </div>
         );

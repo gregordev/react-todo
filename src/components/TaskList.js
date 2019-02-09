@@ -1,11 +1,25 @@
 import React from 'react';
 import {Task} from './Task';
+import {FilterTask} from "./FilterTask";
 
 class TaskList extends React.Component {
+    state = {
+      filters: "",
+        filteredTasks: this.props.tasks
+    };
     render() {
+        const filterTasks = (e) => {
+            console.log(e);
+            this.setState({
+                filters: e.toLowerCase(),
+                filteredTasks: this.props.tasks.filter((item) => {
+                    return item.content.toLowerCase().includes(e);
+                })
+            })
+        };
         return (
             <div>
-                {this.props.tasks.map((task) => {
+                {this.state.filteredTasks.map((task) => {
                     return <Task
                         key={task.content}
                         content={task.content}
@@ -14,6 +28,7 @@ class TaskList extends React.Component {
                         setCompleted={this.props.setCompleted}
                     />;
                 })}
+                <FilterTask filterTasks={filterTasks}/>
             </div>
         )
     }

@@ -1,10 +1,32 @@
 import React from 'react';
 
 class FilterTask extends React.Component {
+
+    state = {
+      filters: ""
+    };
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            filters: nextProps.filters
+        })
+    };
+
+
     render() {
+
+        const filterTasks = (e) => {
+            const newFilters = e.target.value;
+            this.props.filterTasks(newFilters);
+            this.setState({
+                filters: newFilters
+            })
+        };
+
         return (
+
             <div>
-                Filter tasks
+                <input type="text" onChange={filterTasks}/>
             </div>
         )
     }
