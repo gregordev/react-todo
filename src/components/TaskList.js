@@ -7,6 +7,14 @@ class TaskList extends React.Component {
       filters: "",
         filteredTasks: this.props.tasks
     };
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            filters: nextProps.filters,
+            filteredTasks: nextProps.tasks
+        })
+    }
+
     render() {
         const filterTasks = (e) => {
             console.log(e);
@@ -28,7 +36,9 @@ class TaskList extends React.Component {
                         setCompleted={this.props.setCompleted}
                     />;
                 })}
-                <FilterTask filterTasks={filterTasks}/>
+                <FilterTask
+                    tasks={this.props.tasks}
+                    filterTasks={filterTasks}/>
             </div>
         )
     }

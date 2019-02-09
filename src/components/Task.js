@@ -7,12 +7,10 @@ class Task extends React.Component {
       completed: false
     };
 
-    componentWillReceiveProps(nextProps) {
-            this.setState({
-                content: nextProps.content,
-                completed: nextProps.completed
-            })
-    };
+    componentWillMount() {
+        let completed = this.state.completed;
+        this.setState({completed})
+    }
 
     render() {
         const removeTask = () => {
@@ -31,7 +29,7 @@ class Task extends React.Component {
           <div>
               {this.props.content}
               <button onClick={removeTask}>Remove me</button>
-              <input type="checkbox" onChange={setCompleted}/>
+              <input type="checkbox" onChange={setCompleted} checked={this.props.completed}/>
               {this.props.completed ? "Completed" : "Not completed"}
           </div>
         );
