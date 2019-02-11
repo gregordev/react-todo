@@ -1,0 +1,17 @@
+.tasklist-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks-container, .filter-container {
+  width: 100%;
+  text-align: center;
+}
+
+.filter-container {
+  & input {
+    width: 90%;
+  }
+}

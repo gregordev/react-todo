@@ -1,6 +1,7 @@
 import React from 'react';
 import {Task} from './Task';
 import {FilterTask} from "./FilterTask";
+import AddTaskModal from './AddTaskModal';
 
 class TaskList extends React.Component {
     state = {
@@ -26,11 +27,9 @@ class TaskList extends React.Component {
             })
         };
         return (
-            <div>
-                <div>
-                    {this.props.tasks.length > 0 && <div><FilterTask tasks={this.props.tasks} filterTasks={filterTasks}/></div>}
-                </div>
-                {this.props.tasks.length > 0 ? <div>{this.state.filteredTasks.length > 0 ? this.state.filteredTasks.map((task) => {
+            <div className="tasklist-container">
+                    {this.props.tasks.length > 0 && <FilterTask tasks={this.props.tasks} filterTasks={filterTasks}/>}
+                {this.props.tasks.length > 0 ? <div className="tasks-container">{this.state.filteredTasks.length > 0 ? this.state.filteredTasks.map((task) => {
                     return <Task
                         key={task.content}
                         content={task.content}

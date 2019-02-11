@@ -14,3 +14,10 @@ button {
 button:disabled {
   cursor: default;
 }
+
+@media (min-width: 400px) {
+  .app-root {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

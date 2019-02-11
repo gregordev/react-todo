@@ -1,5 +1,5 @@
 import React from 'react';
-import {AddTask} from './AddTask';
+import AddTaskModal from './AddTaskModal';
 import {TaskList} from './TaskList';
 
 class TodoApp extends React.Component {
@@ -59,14 +59,14 @@ class TodoApp extends React.Component {
         };
 
         return (
-          <div>
+          <div className="app-root">
+              <AddTaskModal
+                  addTask={addTask}
+              />
               <TaskList
                   tasks={this.state.tasks}
                   removeTask={removeTask}
                   setCompleted={setCompleted}
-              />
-              <AddTask
-                  addTask={addTask}
               />
           </div>
         );

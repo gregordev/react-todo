@@ -1,4 +1,5 @@
 import React from 'react';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 class Task extends React.Component {
 
@@ -30,11 +31,19 @@ class Task extends React.Component {
         };
 
         return (
-          <div>
-              {this.props.content}
-              <button onClick={removeTask}>Remove me</button>
-              <input type="checkbox" onChange={setCompleted} checked={this.props.completed}/>
-              {this.props.completed ? "Completed" : "Not completed"}
+          <div className="task-container">
+              <p>
+                  <DeleteOutlinedIcon onClick={removeTask}/>
+              </p>
+              <p className="task-content">
+                  {this.props.content}
+              </p>
+              <div>
+                  <input type="checkbox" onChange={setCompleted} checked={this.props.completed}/>
+              </div>
+              <p className="task-completed">
+                  {this.props.completed ? "Completed" : "Not completed"}
+              </p>
           </div>
         );
     }

@@ -25,8 +25,8 @@ class FilterTask extends React.Component {
 
         return (
 
-            <div>
-                <input type="text" onChange={filterTasks}/>
+            <div className="filter-container">
+                <input type="text" placeholder="Search tasks by name..." onChange={filterTasks}/>
             </div>
         )
     }

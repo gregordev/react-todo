@@ -1,3 +1,7 @@
 @import './base/settings';
 @import './base/base';
 // from this moment alphabetical order
+@import 'components/AddTaskModal';
+@import 'components/Filter';
+@import 'components/Task';
+@import 'components/TaskList';
